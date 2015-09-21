@@ -30,6 +30,7 @@
 				var $item = $(this);
 				return $item.position().left + parseInt($item.css('margin-left')) < overflowWidth;
 			}).last());
+			//last possible firstShownItem
 
 			if ( lastFirstShownItem < 0 ) {
 				lastFirstShownItem = $items.length - 1;
