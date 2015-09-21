@@ -28,7 +28,7 @@
 			var lastItemRightMargin = parseInt($lastItem.css('margin-left'))
 			var lastFirstShownItem = $items.index($items.filter(function(){
 				var $item = $(this);
-				return $item.position().left + parseInt($item.css('margin-left')) < overflowWidth;
+				return Math.round($item.position().left + parseInt($item.css('margin-left'))) <= overflowWidth;
 			}).last());
 			//last possible firstShownItem
 
@@ -83,7 +83,7 @@
 					//cycling last→first
 					firstShownItem = 0;
 				}
-				else if ( direction >= 0 && $content.outerWidth() - $nextItem.position().left + parseInt($nextItem.css('margin-left')) >= $viewport.innerWidth() ) {
+				else if ( direction >= 0 && Math.round($content.outerWidth() - $nextItem.position().left + parseInt($nextItem.css('margin-left'))) >= $viewport.innerWidth() ) {
 					//one more to the right available
 					firstShownItem++;
 				}
